@@ -1,6 +1,6 @@
 <template>
-    <nav class="fixed top-0 w-full border-b border-black pr-2">
-        <div class="navbar bg-base-100">
+    <nav class="fixed top-0 right-0 w-full  pr-2">
+        <div class="navbar bg-base-100 w-full fixed right-0 border-b border-black">
             <div class="navbar-start text-2xl">ThermoBook</div>
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal px-1 text-xl">
@@ -12,8 +12,7 @@
                                 <li><router-link :to="`/Allbooks/${'bookType'}/${'صوتی'}`">کتاب های صوتی</router-link>
                                 </li>
                                 <li><router-link class="my-1" :to="`/Allbooks/${'bookType'}/${'الکترونیکی'}`">کتاب های
-                                        چاپی</router-link></li>
-                                <li><router-link :to="`/dashboard`">کتاب های الکترونیکی</router-link></li>
+                                        الکترونیکی</router-link></li>
                             </ul>
                         </details>
                     </li>
@@ -21,8 +20,11 @@
                 </ul>
             </div>
             <div class="navbar-end">
-                <input type="search" class="border-2 w-1/2 rounded-full h-14 ml-3 p-3 outline-none"
-                    placeholder="جست و جو در سایت">
+                <div class="relative ml-5">
+                    <input type="search" class="border-2 w-72 rounded-full h-14 ml-3 p-3 outline-none"
+                        v-model="searchValue" @keyup.{keyAlias}.enter="goPageBooks" placeholder="جست و جو در سایت">
+                        <i class="fa-solid fa-search absolute left-6 top-1/2 -translate-y-1/2 cursor-pointer" @click="goPageBooks"></i>
+                </div>
                 <div class="dropdown dropdown-end">
                     <div tabindex="0" role="button" class="m-1">
                         <div class="avatar">
@@ -51,8 +53,23 @@
 </template>
 
 <script>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 export default {
+    setup() {
+        let searchValue = ref("")
+        let router = useRouter()
+        function goPageBooks() {
+            // searchValue.value.trim()
+            console.log(searchValue.value.trim());
 
+            router.push(`/AllBooks/${'bookName'}/${searchValue.value.trim()}`)
+        }
+        return {
+            searchValue,
+            goPageBooks
+        }
+    }
 }
 </script>
 

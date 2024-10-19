@@ -6,15 +6,15 @@
     <div class="px-10 mt-10">
       <BooksContainer :books="audioBooks">
         <template #title>
-          <p>کتاب های صوتی</p>
-          <p v-if="loading">{{ loadingText }}</p>
+          <p class="mb-1">کتاب های صوتی</p>
+          <LoadingComp v-if="loading"></LoadingComp>
           <router-link v-else :to="`/AllBooks/${'bookType'}/${'صوتی'}`" class="text-blue-500">دیدن همه</router-link>
         </template>
       </BooksContainer>
       <BooksContainer :books="electronicBooks" class="mt-10">
         <template #title>
-          <p>کتاب های الکترونیکی</p>
-          <p v-if="loading">{{ loadingText }}</p>
+          <p class="mb-1">کتاب های الکترونیکی</p>
+          <LoadingComp v-if="loading"></LoadingComp>
           <router-link v-else :to="`/AllBooks/${'bookType'}/${'الکترونیکی'}`" class="text-blue-500">دیدن همه</router-link>
         </template>
       </BooksContainer>
@@ -27,12 +27,14 @@ import { inject, ref, watch } from 'vue';
 import BannerHomePage from '../BannerHomePage.vue';
 import TopBanner from '../TopBanner.vue';
 import BooksContainer from '../BooksContainer.vue';
+import LoadingComp from '../LoadingComp.vue';
 
 export default {
   components: {
     BannerHomePage,
     TopBanner,
-    BooksContainer
+    BooksContainer,
+    LoadingComp
   },
   setup() {
     const datas = ref('')
@@ -48,7 +50,7 @@ export default {
         }
       })
       .catch(err => {
-        loadingText.value = "داده ها از سرور دریافت نشد!"
+        loading.value = false
       })
 
     let audioBooks = ref('')

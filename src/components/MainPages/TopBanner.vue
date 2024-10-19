@@ -1,7 +1,7 @@
 <template>
     <div class="bg-blue-100 flex justify-center items-center pl-20 pt-5">
         <img src="https://taaghche.com/images/firstpagebanner/Taaghche_Banner.webp" class="" alt="">
-        <div class="text-center">
+        <div class="text-center relative right-20">
             <p class="text-6xl">لذت خواندن و شنیدن کتاب‌ها</p>
             <p class="my-5 text-2xl">خرید نسخه‌ی قانونی بیش از ۱۳۵,۰۰۰ کتاب صوتی و الکترونیکی</p>
             <router-link :to="`/AllBooks/${'all'}`"

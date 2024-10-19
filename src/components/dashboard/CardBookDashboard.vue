@@ -1,5 +1,5 @@
 <template>
-    <div class="border-2 border-gray-300 rounded-xl p-2 flex flex-col justify-between relative">
+    <div class="border-2 border-gray-300 rounded-xl p-2 flex overflow-hidden flex-col justify-between relative">
         <div>
             <div class="relative">
                 <router-link :to="`/TargetBookPage/${data[1].bookName}`">
@@ -21,12 +21,10 @@
                 <i class="fa-solid fa-pen cursor-pointer" @click="openCloseFunc()"></i>
             </div>
         </div>
-        <Transition>
-            <div class="absolute right-2 bottom-2 bg-gray-700 rounded-lg opacity-90 px-2 py-1 text-white" v-if="deleteMenu">
-                <button class="block" @click="deleteBook()">حذف کردن کتاب</button>
-                <button @click="deleteMenu=false" class="w-full text-right">لغو</button>
+            <div class="absolute right-2 bg-gray-700 rounded-lg opacity-90 px-2 transition-all duration-500 py-1 text-white" :class="{'bottom-2' :deleteMenu,'-bottom-16':!deleteMenu}">
+                <button class="block" @click="deleteBook()">{{ deleteText }}</button>
+                <button @click="deleteMenu=false" class="w-full text-right mt-1">لغو</button>
             </div>
-        </Transition>
     </div>
 </template>
 
@@ -40,6 +38,7 @@ export default {
 
         let deleteMenu = ref(false)
         let filteredData = ref(null);
+        let deleteText=ref("حذف کردن کتاب")
 
         function openCloseFunc() {
             context.emit('openCloseModalBox');
@@ -61,7 +60,8 @@ export default {
             filteredData,
             deleteMenu,
             openDeleteMenu,
-            deleteBook
+            deleteBook,
+            deleteText
         };
     }
 }
@@ -69,15 +69,5 @@ export default {
 <style>
 #image-book:hover+#type-book {
     opacity: 1;
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
 }
 </style>

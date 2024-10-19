@@ -1,8 +1,8 @@
 <template>
     <div class="relative">
-      <div class="rounded-2xl fex">
+      <div class="rounded-2xl">
         <SideBarDashboard></SideBarDashboard>
-        <router-view class="w-4/5 absolute left-0 h-screen overflow-auto" v-slot="{ Component }">
+        <router-view class="w-4/5 absolute left-0 h-screen overflow-auto " v-slot="{ Component }">
           <Transition name="fade-scale">
             <component :is="Component"></component>
           </Transition>

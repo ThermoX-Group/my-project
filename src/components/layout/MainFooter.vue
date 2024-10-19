@@ -10,7 +10,7 @@
                     <i class="fa-brands fa-facebook mr-3"></i>
                 </div>
             </div>
-            <p class="text-center border-t border-blue-400 mt-1 pt-1">🔥Designed By AmirBrzgr</p>
+            <p class="text-center border-t border-blue-400 mt-1 pt-1">ساخته شده با ❤️ توسط <a href="https://amirmahdi.brzgr1386@gmail.com">AmirBrzgr@</a></p>
         </aside>
     </footer>
 </template>

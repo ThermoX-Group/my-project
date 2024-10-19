@@ -15,8 +15,6 @@
                 @openCloseModalBox="openModalDataFunc" @deleteBookFromDB="acceptDelete(item[0])">
             </CardBookDashboard>
         </TransitionGroup>
-
-        <p v-if="loading" class="fixed bottom-0">loading...</p>
         <Transition>
             <BoxModalData v-if="openModal" @openCloseModalBox="openModalDataFunc" @closeModal="updatingDatas"
                 :data="targetBookCard" @openModalDes="openModalDes = true"></BoxModalData>
@@ -25,6 +23,7 @@
             <boxModalDes v-if="openModalDes" @openCloseModalDes="openModalDes = false" :data="targetBookCard"
                 @updatedDes="updatedDesFunc()"></boxModalDes>
         </Transition>
+        <LoadingComp class="fixed bottom-1 left-5 z-10" v-if="loading"></LoadingComp>
     </div>
 </template>
 
@@ -33,12 +32,14 @@ import { onMounted, provide, ref, watch } from 'vue';
 import BoxModalData from '../BoxModalData.vue';
 import CardBookDashboard from '../CardBookDashboard.vue';
 import boxModalDes from '../boxModalDes.vue';
+import LoadingComp from '../../MainPages/LoadingComp.vue';
 
 export default {
     components: {
         BoxModalData,
         CardBookDashboard,
-        boxModalDes
+        boxModalDes,
+        LoadingComp
     },
     setup() {
         let openModal = ref(false);

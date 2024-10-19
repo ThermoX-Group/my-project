@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col justify-between border-gray-300 fixed h-screen top-0 right-0 bg-blue-100 z-10 w-fit pr-5 text-center pt-5 float-right">
+    <div class="flex flex-col justify-between fixed h-screen top-0 right-0 bg-blue-100 z-10 w-fit pr-5 text-center pt-5 float-right">
         <div>
             <router-link to="/" class="text-3xl mb-5 inline-block">ThermoBook</router-link>
             <ul class="w-full text-xl mb-3">
