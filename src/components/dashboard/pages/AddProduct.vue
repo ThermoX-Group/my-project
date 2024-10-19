@@ -23,7 +23,8 @@
             </div>
             <div>
                 <h3>ژانر کتاب :</h3>
-                <select class="border-2 border-gray-400 mt-3 rounded-full p-2 w-full outline-none cursor-pointer"
+                <select
+                    class="border-2 border-gray-400 bg-white mt-3 rounded-full p-2 w-full outline-none cursor-pointer"
                     v-model="selectGenre">
                     <option v-for="(item, index) in genres" :key="index" :value="item">{{ item }}</option>
                 </select>
@@ -73,7 +74,7 @@
             <button
                 class="bg-blue-400 mt-3 rounded-full cursor-pointer text-white w-full h-full transition hover:bg-blue-500"
                 @click="addBook()">{{ btnText }}</button>
-            <select v-model="bookType" class="rounded-full border-2 border-gray-400 h-full p-2 cursor-pointer">
+            <select v-model="bookType" class="rounded-full border-2 bg-white border-gray-400 h-full p-2 cursor-pointer">
                 <option value="نوع کتاب را وارد کنید" disabled>نوع کتاب را وارد کنید</option>
                 <option value="صوتی">صوتی</option>
                 <option value="الکترونیکی">الکترونیکی</option>
