@@ -31,7 +31,7 @@
                         <div class="avatar">
                             <div class="w-14 rounded-full">
                                 <img
-                                    src="https://image.vip.de/23184942/t/nu/v2/w1440/r1.5/-/ana-de-armas-so-sehr-praegte-sie-ihre-kindheit-auf-kuba-jpg--article-image-62257036-.jpg" />
+                                    src="https://i.natgeofe.com/n/128489c7-201d-49d2-9001-fc3046c59eb7/01-cyrus-the-great-515414668.jpg?w=2048&h=2414" />
                             </div>
                         </div>
                     </div>

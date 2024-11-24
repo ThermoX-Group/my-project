@@ -94,7 +94,6 @@
 <script>
 import { ref, watch } from 'vue';
 import TheAlert from '../../MainPages/TheAlert.vue';
-
 export default {
     components: {
         TheAlert
